@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yk.mapper.SSdqWxxfz2022Mapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.yk.model.entity.SSdqWxxfz2022">
+        <id column="id" property="id" />
+        <result column="sh" property="sh" />
+        <result column="zd_mc" property="zdMc" />
+        <result column="wz_mc" property="wzMc" />
+        <result column="unit" property="unit" />
+        <result column="addr" property="addr" />
+        <result column="phone" property="phone" />
+        <result column="fzr" property="fzr" />
+        <result column="fzr_phone" property="fzrPhone" />
+        <result column="wzkshzdmc" property="wzkshzdmc" />
+        <result column="kshdjsbbh" property="kshdjsbbh" />
+        <result column="jd" property="jd" />
+        <result column="wd" property="wd" />
+        <result column="sfpbddc" property="sfpbddc" />
+        <result column="bz" property="bz" />
+        <result column="uid" property="uid" />
+        <result column="wzid" property="wzid" />
+        <result column="cd_jd" property="cdJd" />
+        <result column="cd_wd" property="cdWd" />
+        <result column="insert_time" property="insertTime" />
+        <result column="update_time" property="updateTime" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, sh, zd_mc, wz_mc, unit, addr, phone, fzr, fzr_phone, wzkshzdmc, kshdjsbbh, jd, wd, sfpbddc, bz, uid, wzid, cd_jd, cd_wd, insert_time, update_time
+    </sql>
+
+</mapper>

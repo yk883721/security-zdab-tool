@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yk.mapper.ZfclxxMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.yk.model.entity.Zfclxx">
+        <id column="id" property="id" />
+        <result column="hh" property="hh" />
+        <result column="cph" property="cph" />
+        <result column="zhy" property="zhy" />
+        <result column="lxfs" property="lxfs" />
+        <result column="yhh" property="yhh" />
+        <result column="cx" property="cx" />
+        <result column="zfdw" property="zfdw" />
+        <result column="zrxq" property="zrxq" />
+        <result column="rs" property="rs" />
+        <result column="bkq" property="bkq" />
+        <result column="gbid" property="gbid" />
+        <result column="img_url" property="imgUrl" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, hh, cph, zhy, lxfs, yhh, cx, zfdw, zrxq, rs, bkq, gbid, img_url
+    </sql>
+
+</mapper>
