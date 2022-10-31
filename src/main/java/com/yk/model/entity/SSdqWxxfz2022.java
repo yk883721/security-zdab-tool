@@ -28,7 +28,7 @@ public class SSdqWxxfz2022 {
     private Integer id;
 
     @ApiModelProperty("序号")
-    private String sh;
+    private Integer sh;
 
     @ApiModelProperty("支队名称")
     private String zdMc;

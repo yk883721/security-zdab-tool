@@ -19,6 +19,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -49,7 +50,8 @@ public class SSdqWxxfz2022Controller {
         Wrapper<SSdqWxxfz2022> wrapper = Wrappers.<SSdqWxxfz2022>lambdaQuery()
                 .like(StringUtils.isNotBlank(dto.getWzMc()), SSdqWxxfz2022::getWzMc, dto.getWzMc())
                 .like(StringUtils.isNotBlank(dto.getAddr()), SSdqWxxfz2022::getAddr, dto.getAddr())
-                .like(StringUtils.isNotBlank(dto.getFzr()), SSdqWxxfz2022::getFzr, dto.getFzr());
+                .like(StringUtils.isNotBlank(dto.getFzr()), SSdqWxxfz2022::getFzr, dto.getFzr())
+                .orderByAsc(SSdqWxxfz2022::getSh);
 
         Page<SSdqWxxfz2022> pageResult = service.page(page, wrapper);
 
@@ -83,6 +85,7 @@ public class SSdqWxxfz2022Controller {
                 .set(SSdqWxxfz2022::getWzid, StringUtils.isBlank(dto.getWzid()) ? null : dto.getWzid())
                 .set(SSdqWxxfz2022::getCdJd, StringUtils.isBlank(dto.getCdJd()) ? null : dto.getCdJd())
                 .set(SSdqWxxfz2022::getCdWd, StringUtils.isBlank(dto.getCdWd()) ? null : dto.getCdWd())
+                .set(SSdqWxxfz2022::getUpdateTime, new Date())
                 .update();
 
 
