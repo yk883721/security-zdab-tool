@@ -67,7 +67,7 @@ public class SSdqWxxfz2022Controller {
 
         boolean result = service.lambdaUpdate()
                 .eq(SSdqWxxfz2022::getId, dto.getId())
-                .set(SSdqWxxfz2022::getSh, StringUtils.isBlank(dto.getSh()) ? null : dto.getSh())
+                .set(SSdqWxxfz2022::getSh, dto.getSh() != null ? null : dto.getSh())
                 .set(SSdqWxxfz2022::getZdMc, StringUtils.isBlank(dto.getZdMc()) ? null : dto.getZdMc())
                 .set(SSdqWxxfz2022::getWzMc, StringUtils.isBlank(dto.getWzMc()) ? null : dto.getWzMc())
                 .set(SSdqWxxfz2022::getUnit, StringUtils.isBlank(dto.getUnit()) ? null : dto.getUnit())

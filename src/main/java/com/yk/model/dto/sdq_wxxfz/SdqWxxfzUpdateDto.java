@@ -9,7 +9,7 @@ public class SdqWxxfzUpdateDto {
     private Integer id;
 
     @ApiModelProperty("序号")
-    private String sh;
+    private Integer sh;
 
     @ApiModelProperty("支队名称")
     private String zdMc;

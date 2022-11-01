@@ -6,6 +6,10 @@ import lombok.Data;
 @Data
 public class YjldxfzSearchDto {
 
+    private Integer page;
+
+    private Integer size;
+
     @ApiModelProperty("呼号")
     private String zfcl;
 

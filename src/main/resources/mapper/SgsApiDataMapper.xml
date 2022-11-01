@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yk.mapper.SgsApiDataMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.yk.model.entity.SgsApiData">
+        <id column="user_id" property="userId" />
+        <result column="mobile_phone" property="mobilePhone" />
+        <result column="user_name" property="userName" />
+        <result column="display_name" property="displayName" />
+        <result column="iccid" property="iccid" />
+        <result column="device_id" property="deviceId" />
+        <result column="depart_id" property="departId" />
+        <result column="depart_name" property="departName" />
+        <result column="company_id" property="companyId" />
+        <result column="company_code" property="companyCode" />
+        <result column="org_structure" property="orgStructure" />
+        <result column="presence" property="presence" />
+        <result column="addr" property="addr" />
+        <result column="lng" property="lng" />
+        <result column="lat" property="lat" />
+        <result column="cj_x" property="cjX" />
+        <result column="cj_y" property="cjY" />
+        <result column="insert_time" property="insertTime" />
+        <result column="update_time" property="updateTime" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        user_id, mobile_phone, user_name, display_name, iccid, device_id, depart_id, depart_name, company_id, company_code, org_structure, presence, addr, lng, lat, cj_x, cj_y, insert_time, update_time
+    </sql>
+
+</mapper>

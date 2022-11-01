@@ -6,6 +6,10 @@ import lombok.Data;
 @Data
 public class EjldxfzSearchDto {
 
+    private Integer page;
+
+    private Integer size;
+
     @ApiModelProperty("辖区消防站")
     private String xqxfz;
 

@@ -4,9 +4,12 @@ package com.yk.controller;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.yk.common.resp.CommonResult;
+import com.yk.common.resp.PagedResult;
 import com.yk.model.dto.yjldxfz.YjldxfzSearchDto;
 import com.yk.model.dto.yjldxfz.YjldxfzUpdateDto;
+import com.yk.model.entity.SSdqWxxfz2022;
 import com.yk.model.entity.Yjldxfz;
 import com.yk.service.YjldxfzService;
 import org.springframework.beans.BeanUtils;
@@ -31,14 +34,27 @@ public class YjldxfzController {
     private YjldxfzService yjldxfzService;
 
     @GetMapping("gbList")
-    public CommonResult<List<Yjldxfz>> list(YjldxfzSearchDto dto){
+    public PagedResult<Yjldxfz> list(YjldxfzSearchDto dto){
+
+        Integer pageNum = dto.getPage();
+        Integer pageSize = dto.getSize();
+        if (pageNum == null || pageSize == null) {
+            return PagedResult.error(500, "参数错误");
+        }
+        Page<Yjldxfz> page = new Page<>(pageNum, pageSize);
 
         Wrapper<Yjldxfz> wrapper = Wrappers.<Yjldxfz>lambdaQuery()
                 .like(StringUtils.isNotBlank(dto.getZfcl()),Yjldxfz::getZfcl, dto.getZfcl())
                 .like(StringUtils.isNotBlank(dto.getSj()),Yjldxfz::getSj, dto.getSj())
                 .like(StringUtils.isNotBlank(dto.getGczh()),Yjldxfz::getGczh, dto.getGczh());
 
-        return CommonResult.success(yjldxfzService.list(wrapper));
+        Page<Yjldxfz> pageResult = yjldxfzService.page(page, wrapper);
+
+        List<Yjldxfz> records = pageResult.getRecords();
+        long total = pageResult.getTotal();
+
+        return PagedResult.ok(records, total);
+
     }
 
     @PostMapping("update")

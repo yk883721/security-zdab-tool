@@ -4,10 +4,13 @@ package com.yk.controller;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.yk.common.resp.CommonResult;
+import com.yk.common.resp.PagedResult;
 import com.yk.model.dto.ejldxfz.EjldxfzSearchDto;
 import com.yk.model.dto.ejldxfz.EjldxfzUpdateDto;
 import com.yk.model.entity.Ejldxfz;
+import com.yk.model.entity.Yjldxfz;
 import com.yk.service.EjldxfzService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,14 +34,27 @@ public class EjldxfzController {
     private EjldxfzService ejldxfzService;
 
     @GetMapping("list")
-    public CommonResult<List<Ejldxfz>> list(EjldxfzSearchDto dto){
+    public PagedResult<Ejldxfz> list(EjldxfzSearchDto dto){
+
+        Integer pageNum = dto.getPage();
+        Integer pageSize = dto.getSize();
+        if (pageNum == null || pageSize == null) {
+            return PagedResult.error(500, "参数错误");
+        }
+        Page<Ejldxfz> page = new Page<>(pageNum, pageSize);
 
         Wrapper<Ejldxfz> wrapper = Wrappers.<Ejldxfz>lambdaQuery()
                 .like(StringUtils.isNotBlank(dto.getXqxfz()),Ejldxfz::getXqxfz, dto.getXqxfz())
                 .like(StringUtils.isNotBlank(dto.getSj()),Ejldxfz::getSj, dto.getSj())
                 .like(StringUtils.isNotBlank(dto.getFzr()),Ejldxfz::getFzr, dto.getFzr());
 
-        return CommonResult.success(ejldxfzService.list(wrapper));
+        Page<Ejldxfz> pageResult = ejldxfzService.page(page, wrapper);
+
+        List<Ejldxfz> records = pageResult.getRecords();
+        long total = pageResult.getTotal();
+
+        return PagedResult.ok(records, total);
+
     }
 
     @PostMapping("update")
