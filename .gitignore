@@ -1,2 +1,4 @@
 /security-zdab-tool.iml
 /.idea/
+/logs/
+/target/
