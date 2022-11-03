@@ -9,9 +9,9 @@ public class Generator {
 
     public static void main(String[] args) {
 
-        String url = "jdbc:mysql://localhost:3306/ciie_2022_db?characterEncoding=utf8&useSSL=false";
-        String username = "root";
-        String password = "root";
+        String url = "jdbc:mysql://10.81.73.15:8084/ciie_2022_db?characterEncoding=utf8&useSSL=false";
+        String username = "dfmzadminuser";
+        String password = "OPGcitybrain123456";
 
         String path = System.getProperty("user.dir") + "\\src\\main";
         String javaPath = path + "\\java";
@@ -31,7 +31,7 @@ public class Generator {
                             .pathInfo(Collections.singletonMap(OutputFile.mapperXml, resourcePath)); // 设置mapperXml生成路径
                 })
                 .strategyConfig(builder -> {
-                    builder.addInclude("sgs_api_data")
+                    builder.addInclude("abtdxlc_detail")
                             .controllerBuilder()
                                 .enableRestStyle()
                             .serviceBuilder()

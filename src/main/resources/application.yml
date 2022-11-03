@@ -4,9 +4,9 @@ spring:
   datasource: # 配置数据源类型
     type: com.zaxxer.hikari.HikariDataSource
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/ciie_2022_db?characterEncoding=utf8&useSSL=false
-    username: root
-    password: root
+    url: jdbc:mysql://172.26.166.99:3306/ciie_2022_db?characterEncoding=utf8&useSSL=false
+    username: dfmzadminuser
+    password: OPGcitybrain123456
 mybatis-plus:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yk.mapper.AbtdxlcDetailMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.yk.model.entity.AbtdxlcDetail">
+        <id column="id" property="id" />
+        <result column="mc" property="mc" />
+        <result column="lxfs" property="lxfs" />
+        <result column="qy" property="qy" />
+        <result column="zh" property="zh" />
+        <result column="uid" property="uid" />
+        <result column="create_time" property="createTime" />
+        <result column="update_time" property="updateTime" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, mc, lxfs, qy, zh, uid, create_time, update_time
+    </sql>
+
+</mapper>
