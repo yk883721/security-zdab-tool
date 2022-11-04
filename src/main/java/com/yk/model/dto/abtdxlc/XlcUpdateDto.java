@@ -29,4 +29,16 @@ public class XlcUpdateDto {
     @ApiModelProperty("UID")
     private String uid;
 
+    @ApiModelProperty("经度")
+    private String jd;
+
+    @ApiModelProperty("纬度")
+    private String wd;
+
+    @ApiModelProperty("城地_经度")
+    private String cdJd;
+
+    @ApiModelProperty("城地_纬度")
+    private String cdWd;
+
 }

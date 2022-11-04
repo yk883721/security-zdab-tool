@@ -68,6 +68,10 @@ public class AbtdxlcDetailController {
                 .set(AbtdxlcDetail::getCldh, StringUtils.isBlank(dto.getCldh()) ? null : dto.getCldh())
                 .set(AbtdxlcDetail::getZh, StringUtils.isBlank(dto.getZh()) ? null : dto.getZh())
                 .set(AbtdxlcDetail::getUid, StringUtils.isBlank(dto.getUid()) ? null : dto.getUid())
+                .set(AbtdxlcDetail::getJd, StringUtils.isBlank(dto.getJd()) ? null : dto.getJd())
+                .set(AbtdxlcDetail::getWd, StringUtils.isBlank(dto.getWd()) ? null : dto.getWd())
+                .set(AbtdxlcDetail::getCdJd, StringUtils.isBlank(dto.getCdJd()) ? null : dto.getCdJd())
+                .set(AbtdxlcDetail::getCdWd, StringUtils.isBlank(dto.getCdWd()) ? null : dto.getCdWd())
                 .set(AbtdxlcDetail::getUpdateTime, new Date())
                 .update();
 
